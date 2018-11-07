@@ -10,7 +10,8 @@ class App extends Component {
     name: '',
     type: '',
     height: '',
-    weight: ''
+    weight: '',
+    sprite: ''
   }
   getPokemon = async (e) => {
     e.preventDefault();
@@ -22,12 +23,13 @@ class App extends Component {
       name: data.name,
       type: data.types[1].type.name,
       height: data.height,
-      weight: data.weight
+      weight: data.weight,
+      sprite: data.sprites.front_default
     });
     console.log(this.state.pokemonInfo);
   }
   render() {
-    const { name, type, height, weight } = this.state;
+    const { name, type, height, weight, sprite } = this.state;
     return (
       <div className="App">
         <h1>Pokedex</h1>
@@ -38,7 +40,8 @@ class App extends Component {
           name={name}
           type={type}
           height={height}
-          weight={weight} />
+          weight={weight}
+          sprite={sprite} />
       </div>
     );
   }
