@@ -10,15 +10,16 @@ const PokemonInfo = props => {
   let inches = Math.round((actualFeet - feet) * 12);
   let heightInFeet = `${feet}'${inches}`;
   return (
-    <div>
+    <div className="pokemon-info-container">
     <img
       src={sprite}
-      alt={name} />
+      alt={name}
+       />
       <h2>{name.charAt(0).toUpperCase() + name.slice(1)}</h2>
       <p>{type.charAt(0).toUpperCase() + type.slice(1)}</p>
       <p>{subtype}</p>
-      <p>{heightInFeet} ft</p>
-      <p>{roundedWeight} lbs</p>
+      <p>Height: {heightInFeet} ft</p>
+      <p>Weight: {roundedWeight} lbs</p>
 
     </div>
   );

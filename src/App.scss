@@ -1,8 +1,62 @@
 @import './variables.scss';
 
+/* ----MIXINS ----- */
+@mixin dots {
+  width: 1.3em;
+  height: 1.3em;
+  border-radius: 50%;
+}
+
+/* ----MIXINS ----- */
+* {
+  margin: 0;
+  padding: 0;
+}
 .App {
   text-align: center;
+  h1 {
+    color: $primary-color;
+  }
 }
-h1 {
-  color: $primary-color;
+.pokemon-info-container {
+  img {
+    height: 200px;
+    width: 200px;
+  }
+  p {
+    font-size: 20px;
+  }
+}
+
+.pokedex-container {
+  background-color: red;
+  height: 30em;
+  width: 25em;
+  margin: auto;
+  margin-top: 2em;
+  .top-buttons {
+    border: 2px solid green;
+    background-color: black;
+    height: 4em;
+    width: 100%;
+    .three-dots {
+      border: 2px dotted pink;
+      height: 2em;
+      width: 20%;
+      display: flex;
+      justify-content: space-between;
+      div:nth-child(1) {
+        @include dots;
+        background-color: red;
+      }
+      div:nth-child(2) {
+        @include dots;
+        background-color: yellow;
+      }
+      div:nth-child(3) {
+        @include dots;
+        background-color: green;
+      }
+    }
+  }
 }
