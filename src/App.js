@@ -9,36 +9,43 @@ class App extends Component {
     pokemonInfo: [],
     name: '',
     type: '',
+    subtype: '',
     height: '',
     weight: '',
     sprite: ''
   }
   getPokemon = async (e) => {
-    e.preventDefault();
-    const apiCall = await fetch('https://pokeapi.co/api/v2/pokemon/1/');
+    const pokemonName = e.target.elements.pokemonName.value;
 
+    e.preventDefault();
+    const apiCall = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}/`);
+    // const subtype = data.types[1].type.name;
     const data = await apiCall.json();
     this.setState({
       pokemonInfo: data,
       name: data.name,
-      type: data.types[1].type.name,
+      type: data.types[0].type.name,
+      // subtype: data.includes(data.types[1].type.name) && data.types[1].type.name,
       height: data.height,
       weight: data.weight,
       sprite: data.sprites.front_default
     });
-    console.log(this.state.pokemonInfo);
+
   }
   render() {
-    const { name, type, height, weight, sprite } = this.state;
+    const { name, type, subtype, height, weight, sprite } = this.state;
     return (
       <div className="App">
         <h1>Pokedex</h1>
+
         <form onSubmit={this.getPokemon}>
-          <input type="submit" />
+          <input type="text" name="pokemonName" />
+          <input type="submit" value="Search"/>
         </form>
         <PokemonInfo
           name={name}
           type={type}
+          subtye={subtype}
           height={height}
           weight={weight}
           sprite={sprite} />
