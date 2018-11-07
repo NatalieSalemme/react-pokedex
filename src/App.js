@@ -12,7 +12,8 @@ class App extends Component {
     subtype: '',
     height: '',
     weight: '',
-    sprite: ''
+    sprite: '',
+    inputValue: ''
   }
   getPokemon = async (e) => {
     const pokemonName = e.target.elements.pokemonName.value;
@@ -28,9 +29,14 @@ class App extends Component {
       // subtype: data.includes(data.types[1].type.name) && data.types[1].type.name,
       height: data.height,
       weight: data.weight,
-      sprite: data.sprites.front_default
+      sprite: data.sprites.front_default,
+      inputValue: ''
     });
-
+  }
+  onInputChange(value) {
+    this.setState({
+      inputValue: value
+    });
   }
   render() {
     const { name, type, subtype, height, weight, sprite } = this.state;
@@ -39,7 +45,11 @@ class App extends Component {
         <h1>Pokedex</h1>
 
         <form onSubmit={this.getPokemon}>
-          <input type="text" name="pokemonName" />
+          <input
+            type="text"
+            name="pokemonName"
+            value={this.state.inputValue}
+            onChange={e => this.onInputChange(e.target.value)} />
           <input type="submit" value="Search"/>
         </form>
         <PokemonInfo
