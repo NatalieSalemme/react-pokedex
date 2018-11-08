@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.scss';
 import PokemonInfo from './PokemonInfo';
 import Pokedex from './Pokedex';
@@ -52,7 +51,8 @@ class App extends Component {
             onChange={e => this.onInputChange(e.target.value)} />
           <input type="submit" value="Search"/>
         </form>
-        <Pokedex />
+        <Pokedex
+        sprite={sprite}/>
         <PokemonInfo
           name={name}
           type={type}
