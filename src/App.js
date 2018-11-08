@@ -13,9 +13,13 @@ class App extends Component {
     weight: '',
     sprite: '',
     inputValue: '',
-    id: ''
+    id: '',
+    blinking: false
   }
   getPokemon = async (e) => {
+    // const blink = this.refs.button;
+    // blink.addEventListener('animationed', this.blink);
+
     const pokemonName = e.target.elements.pokemonName.value;
     let id = this.state.id;
     e.preventDefault();
@@ -32,6 +36,7 @@ class App extends Component {
       sprite: data.sprites.front_default,
       id: data.id,
       inputValue: '',
+      blinking: true
 
     });
   }
@@ -83,7 +88,7 @@ class App extends Component {
     localStorage.setItem("pokemon", pokemon);
   }
   render() {
-    const { name, type, subtype, height, weight, sprite, id } = this.state;
+    const { name, type, subtype, height, weight, sprite, id, blinking } = this.state;
     return (
       <div className="App">
         <h1>Pok&eacute;dex</h1>
@@ -111,6 +116,7 @@ class App extends Component {
           id={id}
           onRight={this.onRight}
           onLeft={this.onLeft}
+          blinking={blinking}
         />
         <PokemonInfo
           name={name}

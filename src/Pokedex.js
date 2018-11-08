@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Pokedex = props => {
-  const { name, type, subtype, height, weight, sprite } = props;
+  const { name, type, subtype, height, weight, sprite, blinking } = props;
   //converting weight from hectograms to pounds
   let roundedWeight = Math.round((weight / 4.536) * 10) /10;
   //concerting height from decimeters to feet
@@ -12,7 +12,7 @@ const Pokedex = props => {
   return (
   <div className="pokedex-container">
     <div className="top-buttons">
-      <div className="lightup-blue">
+      <div className={blinking ? 'blinking' : 'lightup-blue'}>
       </div>
       <div className="three-dots">
         <div></div>
