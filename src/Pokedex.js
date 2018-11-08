@@ -12,7 +12,8 @@ const Pokedex = props => {
   return (
   <div className="pokedex-container">
     <div className="top-buttons">
-      <div className="lightup-blue"></div>
+      <div className="lightup-blue">
+      </div>
       <div className="three-dots">
         <div></div>
         <div></div>

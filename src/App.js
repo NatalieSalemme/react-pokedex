@@ -40,6 +40,17 @@ class App extends Component {
       inputValue: value
     });
   }
+  componentDidMount = () => {
+    const json = localStorage.getItem("pokemon");
+    const pokemon = JSON.parse(json);
+    this.setState({
+      pokemonInfo: pokemon
+    });
+  }
+  componentDidUpdate = () => {
+    const pokemon = JSON.stringify(this.state.pokemonInfo);
+    localStorage.setItem("pokemon", pokemon);
+  }
   render() {
     const { name, type, subtype, height, weight, sprite, id } = this.state;
     return (
