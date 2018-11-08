@@ -50,6 +50,21 @@ class App extends Component {
       inputValue: '',
     });
   }
+  onLeft = async (e) => {
+    let id = this.state.id - 1;
+    const apiCall = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+    const data = await apiCall.json();
+    this.setState({
+      pokemonInfo: data,
+      name: data.name,
+      type: data.types[0].type.name,
+      height: data.height,
+      weight: data.weight,
+      sprite: data.sprites.front_default,
+      id: data.id,
+      inputValue: '',
+    });
+  }
 
   onInputChange(value) {
     this.setState({
@@ -95,6 +110,7 @@ class App extends Component {
           weight={weight}
           id={id}
           onRight={this.onRight}
+          onLeft={this.onLeft}
         />
         <PokemonInfo
           name={name}
