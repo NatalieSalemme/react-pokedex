@@ -60,6 +60,7 @@ const Pokedex = props => {
         <p>{subtype}</p>
         <p>Height: {heightInFeet} ft</p>
         <p>Weight: {roundedWeight} lbs</p>
+        <p>Id: #{props.id}</p>
         </div>
       </div>
 

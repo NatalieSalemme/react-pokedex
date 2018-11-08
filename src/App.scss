@@ -95,9 +95,6 @@
       border-style: outset;
       box-shadow: -3px 3px darkgray;
       background: radial-gradient(circle at 20px 20px, white, blue);
-
-
-
     }
     .three-dots {
       // border: 2px dotted pink;
@@ -228,7 +225,7 @@
       width: 80%;
       margin: auto;
       margin-top: 2em;
-      height: 5em;
+      height: 7em;
       background-color: rgb(83, 154, 68);
       border: 5px solid darkgrey;
       border-style: inset;
@@ -262,6 +259,18 @@
     .left {
       @include leftRight;
       border-radius: 8px 0 0 8px;
+    }
+    .right:active,
+    .left:active {
+      transform: translateY(1px);
+    }
+    .down:active {
+      box-shadow: 0 2px rgb(41, 42, 37);
+      transform: translateY(-1px);
+    }
+    .up:active {
+      box-shadow: 0 2px rgb(41, 42, 37);
+      transform: translateY(-1px);
     }
     .base {
       height: 1.5em;

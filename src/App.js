@@ -12,7 +12,8 @@ class App extends Component {
     height: '',
     weight: '',
     sprite: '',
-    inputValue: ''
+    inputValue: '',
+    id: ''
   }
   getPokemon = async (e) => {
     const pokemonName = e.target.elements.pokemonName.value;
@@ -29,7 +30,9 @@ class App extends Component {
       height: data.height,
       weight: data.weight,
       sprite: data.sprites.front_default,
-      inputValue: ''
+      id: data.id,
+      inputValue: '',
+
     });
   }
   onInputChange(value) {
@@ -38,7 +41,7 @@ class App extends Component {
     });
   }
   render() {
-    const { name, type, subtype, height, weight, sprite } = this.state;
+    const { name, type, subtype, height, weight, sprite, id } = this.state;
     return (
       <div className="App">
         <h1>Pok&eacute;dex</h1>
@@ -63,6 +66,7 @@ class App extends Component {
         type={type}
         height={height}
         weight={weight}
+        id={id}
         />
         <PokemonInfo
           name={name}
