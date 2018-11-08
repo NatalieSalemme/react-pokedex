@@ -202,6 +202,10 @@
       border: 3px solid darkgray;
       border-style: outset;
       border-radius: 50%;
+      box-shadow: 0 4px rgb(41, 42, 37);
+    }
+    div:active {
+      transform: translateY(1.5px);
     }
   }
   .middle-btns {
