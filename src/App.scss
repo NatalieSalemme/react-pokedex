@@ -32,7 +32,16 @@
   width: 2em;
   background-color: rgb(41, 42, 37);
 }
-
+@mixin lightblue-btn {
+  height: 4em;
+  width: 4em;
+  border-radius: 50%;
+  border: 6px solid white;
+  margin: 1em 2em;
+  border-style: outset;
+  box-shadow: 2px 4px darkgray;
+  background: radial-gradient(circle at 20px 20px, white, blue);
+}
 /* ----MIXINS ----- */
 * {
   margin: 0;
@@ -88,28 +97,10 @@
     display: flex;
 
     .lightup-blue {
-      height: 4em;
-      width: 4em;
-      // background-color: blue;
-      border-radius: 50%;
-      border: 6px solid white;
-      margin: 1em 2em;
-      border-style: outset;
-      box-shadow: 2px 4px darkgray;
-      background: radial-gradient(circle at 20px 20px, white, blue);
-      // animation: blink .8s ease-in-out infinite alternate;
+      @include lightblue-btn
   }
     .blinking {
-      display: hidden;
-      height: 4em;
-      width: 4em;
-      // background-color: blue;
-      border-radius: 50%;
-      border: 6px solid white;
-      margin: 1em 2em;
-      border-style: outset;
-      box-shadow: 2px 4px darkgray;
-      background: radial-gradient(circle at 20px 20px, white, blue);
+      @include lightblue-btn;
       animation: blink .8s ease-in-out infinite alternate;
     }
 
@@ -253,6 +244,10 @@
         @include pinkblue;
         background-color: blue;
       }
+    }
+    .blue-pink-btns button:active {
+        transform: translateY(1.2px);
+        box-shadow: 1px 2px rgb(41, 42, 37);
     }
     .green-screen {
       width: 80%;
