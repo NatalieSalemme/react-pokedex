@@ -5,8 +5,9 @@
   width: 1.3em;
   height: 1.3em;
   border-radius: 50%;
-  border: 1.8px solid black;
+  border: 2.5px solid gray;
   border-style: outset;
+  box-shadow: 1px 1px;
 }
 @mixin pinkblue {
   width: 5em;
@@ -123,20 +124,20 @@
       // border: 2px dotted pink;
       margin-top: 1em;
       height: 2em;
-      width: 20%;
+      width: 25%;
       display: flex;
       justify-content: space-between;
       div:nth-child(1) {
         @include dots;
-        background-color: darkred;
+        background: radial-gradient(circle at 20px 20px, rgb(207, 60, 40), rgb(250, 69, 21));
       }
       div:nth-child(2) {
         @include dots;
-        background-color: yellow;
+          background: radial-gradient(circle at 20px 20px, rgb(185, 194, 25), rgb(223, 241, 110));
       }
       div:nth-child(3) {
         @include dots;
-        background-color: green;
+        background: radial-gradient(circle at 20px 20px, rgb(45, 210, 62), rgb(58, 140, 54));
       }
     }
   }
@@ -152,6 +153,7 @@
     border: 4px solid gray;
     border-style: outset;
     border-radius: 10px 10px 10px 60px;
+    box-shadow: 2px 2px;
 
     .two-dot-container {
       height: 1em;
@@ -161,9 +163,11 @@
       div {
         height: 1em;
         width: 1em;
-        background-color: darkred;
+        background-color: red;
         border-radius: 50%;
         margin: .5em;
+        border: 1px solid gray;
+        box-shadow: 1px 1px;
       }
     }
     .poke-image {
@@ -180,7 +184,6 @@
     }
     .under-poke-image {
       height: 3em;
-
       width: 80%;
       margin: auto;
       display: flex;
@@ -191,7 +194,9 @@
         width: 1.5em;
         border-radius: 50%;
         background-color: red;
-        border: 1px solid black;
+        border: 2px solid gray;
+        border-style: outset;
+        box-shadow: 1.5px 1.5px;
       }
     }
   }
