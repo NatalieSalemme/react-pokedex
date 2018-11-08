@@ -1,6 +1,15 @@
 import React from 'react'
 
-const Pokedex = props => (
+const Pokedex = props => {
+  const { name, type, subtype, height, weight, sprite } = props;
+  //converting weight from hectograms to pounds
+  let roundedWeight = Math.round((weight / 4.536) * 10) /10;
+  //concerting height from decimeters to feet
+  let actualFeet = height / 3.048;
+  let feet = Math.floor(actualFeet);
+  let inches = Math.round((actualFeet - feet) * 12);
+  let heightInFeet = `${feet}'${inches}`;
+  return (
   <div className="pokedex-container">
     <div className="top-buttons">
       <div className="lightup-blue"></div>
@@ -45,7 +54,13 @@ const Pokedex = props => (
           <button></button>
           <button></button>
         </div>
-        <div className="green-screen"></div>
+        <div className="green-screen">
+        <h2>{name.charAt(0).toUpperCase() + name.slice(1)}</h2>
+        <p>{type.charAt(0).toUpperCase() + type.slice(1)}</p>
+        <p>{subtype}</p>
+        <p>Height: {heightInFeet} ft</p>
+        <p>Weight: {roundedWeight} lbs</p>
+        </div>
       </div>
 
       <div className="control-pad">
@@ -54,7 +69,9 @@ const Pokedex = props => (
         </div>
         <div className="lbr">
           <div className="left"></div>
-          <div className="base"></div>
+          <div className="base">
+            <div className="base-circle"></div>
+            </div>
           <div className="right"></div>
         </div>
         <div>
@@ -63,5 +80,6 @@ const Pokedex = props => (
       </div>
     </div>
   </div>
-);
+  );
+}
 export default Pokedex;

@@ -41,19 +41,29 @@ class App extends Component {
     const { name, type, subtype, height, weight, sprite } = this.state;
     return (
       <div className="App">
-        <h1>Pokedex</h1>
+        <h1>Pok&eacute;dex</h1>
 
         <form onSubmit={this.getPokemon}>
           <input
+            className="poke-input"
             type="text"
             name="pokemonName"
             value={this.state.inputValue}
             onChange={e => this.onInputChange(e.target.value)} />
-          <input type="submit" value="Search"/>
+            <br />
+
+          <input
+            className="search-btn"
+            type="submit"
+            value="Search"/>
         </form>
         <Pokedex
         sprite={sprite}
-        name={name}/>
+        name={name}
+        type={type}
+        height={height}
+        weight={weight}
+        />
         <PokemonInfo
           name={name}
           type={type}

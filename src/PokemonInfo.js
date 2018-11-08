@@ -11,15 +11,8 @@ const PokemonInfo = props => {
   let heightInFeet = `${feet}'${inches}`;
   return (
     <div className="pokemon-info-container">
-    <img
-      src={sprite}
-      alt={name}
-       />
-      <h2>{name.charAt(0).toUpperCase() + name.slice(1)}</h2>
-      <p>{type.charAt(0).toUpperCase() + type.slice(1)}</p>
-      <p>{subtype}</p>
-      <p>Height: {heightInFeet} ft</p>
-      <p>Weight: {roundedWeight} lbs</p>
+  
+
 
     </div>
   );

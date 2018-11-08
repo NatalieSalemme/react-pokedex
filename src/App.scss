@@ -17,6 +17,20 @@
   outline: none;
   box-shadow: 2px 2px;
 }
+@mixin upDown {
+  height: 2em;
+  width: 1.5em;
+  background-color: rgb(41, 42, 37);
+  margin: auto;
+  border-style: solid;
+  border-width: 0 3px 0 0;
+
+}
+@mixin leftRight {
+  height: 1.5em;
+  width: 2em;
+  background-color: rgb(41, 42, 37);
+}
 
 /* ----MIXINS ----- */
 * {
@@ -27,6 +41,23 @@
   text-align: center;
   h1 {
     color: $primary-color;
+    font-size: 55px;
+  }
+  .poke-input {
+    margin-top: 2em;
+    height: 30px;
+    width: 16em;
+    border-radius: 4px;
+    outline: none;
+  }
+  .search-btn {
+    margin-top: 1em;
+    width: 7em;
+    height: 2em;
+    font-size: 17px;
+    background-color: lightblue;
+    border-radius: 10px;
+    font-weight: bold;
   }
 }
 .pokemon-info-container {
@@ -158,22 +189,26 @@
 }
 .controls-container {
   margin-top: 1.5em;
-  border: 2px solid green;
+  // border: 2px solid green;
   height: 10em;
   display: flex;
-  // align-items: center;
   .enter-btn {
-    border: 1px solid white;
-    width: 15%;
+    // border: 1px solid white;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     div {
       height: 3em;
       width: 3em;
-      background-color: black;
+      background-color: rgb(41, 42, 37);
+      border: 3px solid darkgray;
+      border-style: outset;
       border-radius: 50%;
     }
   }
   .middle-btns {
-    border: 1px dotted blue;
+    // border: 1px dotted blue;
     width: 50%;
     .blue-pink-btns {
       // border: 2px dotted white;
@@ -200,9 +235,9 @@
     }
   }
   .control-pad {
-    border: 1px solid white;
+    // border: 1px solid white;
     justify-content: center;
-    width: 35%;
+    width: 30%;
     display: flex;
     flex-direction: column;
 
@@ -212,35 +247,36 @@
       justify-content: center;
     }
     .up {
-      height: 2em;
-      width: 1.5em;
-      background-color: black;
+      @include upDown;
       border-radius: 8px 8px 0 0;
-      margin: auto;
     }
     .right {
-      height: 1.5em;
-      width: 2em;
-      background-color: black;
+      @include leftRight;
       border-radius: 0 8px 8px 0;
+      border-width: 0 2px 0 0;
     }
     .down {
-      height: 2em;
-      width: 1.5em;
-      background-color: black;
+      @include upDown;
       border-radius: 0 0 8px 8px;
-      margin: auto;
     }
     .left {
-      height: 1.5em;
-      width: 2em;
-      background-color: black;
+      @include leftRight;
       border-radius: 8px 0 0 8px;
     }
     .base {
       height: 1.5em;
       width: 2em;
-      background-color: black;
+      background-color: rgb(41, 42, 37);
+      .base-circle {
+        height: 1em;
+        width: 1em;
+        background-color: rgb(46, 48, 44);
+        border: 2px solid gray;
+        border-style: inset;
+        border-radius: 50%;
+        margin: auto;
+        margin-top: .2em;
+      }
     }
   }
 }
