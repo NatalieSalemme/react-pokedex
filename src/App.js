@@ -52,7 +52,8 @@ class App extends Component {
           <input type="submit" value="Search"/>
         </form>
         <Pokedex
-        sprite={sprite}/>
+        sprite={sprite}
+        name={name}/>
         <PokemonInfo
           name={name}
           type={type}

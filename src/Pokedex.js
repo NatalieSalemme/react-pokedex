@@ -20,6 +20,7 @@ const Pokedex = props => (
         <div className="poke-image">
         {props.sprite && <img
           src={props.sprite}
+          alt={props.name}
            /> }
 
         </div>
@@ -48,10 +49,17 @@ const Pokedex = props => (
       </div>
 
       <div className="control-pad">
-        <div className="up"></div>
-        <div className="right"></div>
-        <div className="down"></div>
-        <div className="left"></div>
+        <div>
+          <div className="up"></div>
+        </div>
+        <div className="lbr">
+          <div className="left"></div>
+          <div className="base"></div>
+          <div className="right"></div>
+        </div>
+        <div>
+          <div className="down"></div>
+        </div>
       </div>
     </div>
   </div>
