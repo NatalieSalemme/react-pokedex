@@ -52,8 +52,11 @@ const Pokedex = props => {
       </div>
       <div className="middle-btns">
         <div className="blue-pink-btns">
-          <button></button>
-          <button></button>
+          <button
+            onClick={props.onBackSprite}
+          ></button>
+          <button
+            onClick={props.onFrontSprite}></button>
         </div>
         <div className="green-screen">
         <h2>{name.charAt(0).toUpperCase() + name.slice(1)}</h2>

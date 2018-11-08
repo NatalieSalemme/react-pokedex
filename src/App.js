@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.scss';
 import PokemonInfo from './PokemonInfo';
 import Pokedex from './Pokedex';
+import googleTTS from 'google-tts-api';
 
 class App extends Component {
   state = {
@@ -12,14 +13,13 @@ class App extends Component {
     height: '',
     weight: '',
     sprite: '',
+    backSprite: '',
     inputValue: '',
     id: '',
     blinking: false
   }
-  getPokemon = async (e) => {
-    // const blink = this.refs.button;
-    // blink.addEventListener('animationed', this.blink);
 
+  getPokemon = async (e) => {
     const pokemonName = e.target.elements.pokemonName.value;
     let id = this.state.id;
     e.preventDefault();
@@ -70,7 +70,22 @@ class App extends Component {
       inputValue: '',
     });
   }
-
+  onBackSprite = async (e) => {
+    let id = this.state.id;
+    const apiCall = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+    const data = await apiCall.json();
+    this.setState({
+      sprite: data.sprites.back_default,
+    });
+  }
+  onFrontSprite = async (e) => {
+    let id = this.state.id;
+    const apiCall = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+    const data = await apiCall.json();
+    this.setState({
+      sprite: data.sprites.front_default,
+    });
+  }
   onInputChange(value) {
     this.setState({
       inputValue: value
@@ -117,6 +132,8 @@ class App extends Component {
           onRight={this.onRight}
           onLeft={this.onLeft}
           blinking={blinking}
+          onFrontSprite={this.onFrontSprite}
+          onBackSprite={this.onBackSprite}
         />
         <PokemonInfo
           name={name}
