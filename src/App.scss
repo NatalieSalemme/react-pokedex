@@ -98,13 +98,13 @@
       background: radial-gradient(circle at 20px 20px, white, blue);
       animation: blinds .8s ease-in-out infinite alternate;
     }
-    @keyframes blinds {
-  to {
-    // background-image: linear-gradient(90deg, rgb(101, 224, 232) 100%, #444 0);
-    background: radial-gradient(circle at 20px 20px, white, #65e1ed);
-    box-shadow: 0px 0px 50px 2px #65e1ed;
-  }
-}
+//     @keyframes blinds {
+//   to {
+//     // background-image: linear-gradient(90deg, rgb(101, 224, 232) 100%, #444 0);
+//     background: radial-gradient(circle at 20px 20px, white, #65e1ed);
+//     box-shadow: 0px 0px 50px 2px #65e1ed;
+//   }
+// }
     .three-dots {
       // border: 2px dotted pink;
       margin-top: 1em;

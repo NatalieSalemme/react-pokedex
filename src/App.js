@@ -17,7 +17,7 @@ class App extends Component {
   }
   getPokemon = async (e) => {
     const pokemonName = e.target.elements.pokemonName.value;
-
+    let id = this.state.id;
     e.preventDefault();
     const apiCall = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}/`);
     // const subtype = data.types[1].type.name;
@@ -35,6 +35,22 @@ class App extends Component {
 
     });
   }
+  onRight = async (e) => {
+    let id = this.state.id + 1;
+    const apiCall = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+    const data = await apiCall.json();
+    this.setState({
+      pokemonInfo: data,
+      name: data.name,
+      type: data.types[0].type.name,
+      height: data.height,
+      weight: data.weight,
+      sprite: data.sprites.front_default,
+      id: data.id,
+      inputValue: '',
+    });
+  }
+
   onInputChange(value) {
     this.setState({
       inputValue: value
@@ -72,12 +88,13 @@ class App extends Component {
             value="Search"/>
         </form>
         <Pokedex
-        sprite={sprite}
-        name={name}
-        type={type}
-        height={height}
-        weight={weight}
-        id={id}
+          sprite={sprite}
+          name={name}
+          type={type}
+          height={height}
+          weight={weight}
+          id={id}
+          onRight={this.onRight}
         />
         <PokemonInfo
           name={name}

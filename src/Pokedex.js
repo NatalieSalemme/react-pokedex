@@ -74,7 +74,10 @@ const Pokedex = props => {
           <div className="base">
             <div className="base-circle"></div>
             </div>
-          <div className="right"></div>
+          <div
+          className="right"
+          onClick={props.onRight}
+          ></div>
         </div>
         <div>
           <div className="down"></div>
