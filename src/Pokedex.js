@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Pokedex = props => {
-  const { name, type, subtype, height, weight, sprite, blinking } = props;
+  const { name, type, subtype, height, weight, sprite, blinking, onBackSprite, onFrontSprite, onLeft, onRight } = props;
   //converting weight from hectograms to pounds
   let roundedWeight = Math.round((weight / 4.536) * 10) /10;
   //concerting height from decimeters to feet
@@ -28,9 +28,9 @@ const Pokedex = props => {
           <div></div>
         </div>
         <div className="poke-image">
-        {props.sprite && <img
-          src={props.sprite}
-          alt={props.name}
+        {sprite && <img
+          src={sprite}
+          alt={name}
            /> }
 
         </div>
@@ -53,10 +53,10 @@ const Pokedex = props => {
       <div className="middle-btns">
         <div className="orange-blue-btns">
           <button
-            onClick={props.onBackSprite}
+            onClick={onBackSprite}
           ></button>
           <button
-            onClick={props.onFrontSprite}></button>
+            onClick={onFrontSprite}></button>
         </div>
         <div className="green-screen">
         {height &&
@@ -82,13 +82,13 @@ const Pokedex = props => {
         <div className="lbr">
           <div
           className="left"
-          onClick={props.onLeft}></div>
+          onClick={onLeft}></div>
           <div className="base">
             <div className="base-circle"></div>
             </div>
           <div
           className="right"
-          onClick={props.onRight}
+          onClick={onRight}
           ></div>
         </div>
         <div>

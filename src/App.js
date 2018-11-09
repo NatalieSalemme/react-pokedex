@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.scss';
+import logo from './logo.svg';
 
 import Pokedex from './Pokedex';
 
@@ -36,7 +37,6 @@ class App extends Component {
       id: data.id,
       inputValue: '',
       blinking: true
-
     });
   }
   onRight = async (e) => {
@@ -134,7 +134,15 @@ class App extends Component {
           onFrontSprite={this.onFrontSprite}
           onBackSprite={this.onBackSprite}
         />
-
+        <p className="footer">Coded by Natalie Salemme</p>
+        <img
+          className="logo"
+          src={logo}
+          alt="React logo" />
+        <img
+          className="logo"
+          src={require('./sass.png')}
+          alt="Sass logo" />
       </div>
     );
   }
