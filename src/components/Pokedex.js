@@ -67,8 +67,8 @@ const Pokedex = props => {
         <div className="green-screen">
         {blinking &&
             <div>
-            <h2>{name.charAt(0).toUpperCase() + name.slice(1)}</h2>
-            <p>{type.charAt(0).toUpperCase() + type.slice(1)}</p>
+            <h3>{name.charAt(0).toUpperCase() + name.slice(1)}</h3>
+            <p>Type: {type.charAt(0).toUpperCase() + type.slice(1)}</p>
             <p>Height: {heightInFeet} ft</p>
             <p>Weight: {roundedWeight} lbs</p>
             <p>Id: #{props.id}</p>
