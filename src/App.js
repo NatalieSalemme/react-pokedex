@@ -21,7 +21,6 @@ class App extends Component {
 
   getPokemon = async (e) => {
     const pokemonName = e.target.elements.pokemonName.value;
-    let id = this.state.id;
     e.preventDefault();
     const apiCall = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}/`);
     // const subtype = data.types[1].type.name;
@@ -36,7 +35,7 @@ class App extends Component {
       sprite: data.sprites.front_default,
       id: data.id,
       inputValue: '',
-      blinking: true
+      blinking: true,
     });
   }
   onRight = async (e) => {
@@ -90,6 +89,11 @@ class App extends Component {
       inputValue: value
     });
   }
+  onEnter = () => {
+    this.setState({
+      blinking: !this.state.blinking
+    });
+  }
   componentDidMount = () => {
     const json = localStorage.getItem("pokemon");
     const pokemon = JSON.parse(json);
@@ -133,6 +137,7 @@ class App extends Component {
           blinking={blinking}
           onFrontSprite={this.onFrontSprite}
           onBackSprite={this.onBackSprite}
+          onEnter={this.onEnter}
         />
         <p className="footer">Coded by Natalie Salemme</p>
         <img

@@ -27,8 +27,10 @@ const Pokedex = props => {
           <div></div>
           <div></div>
         </div>
+          {/*only renders if user has entered a valid pokemon name or id*/}
         <div className="poke-image">
-        {sprite && <img
+
+        {blinking && <img
           src={sprite}
           alt={name}
            /> }
@@ -47,7 +49,9 @@ const Pokedex = props => {
 
     </div>
     <div className="controls-container">
-      <div className="enter-btn">
+      <div
+      className="enter-btn"
+      onClick={props.onEnter}>
         <div></div>
       </div>
       <div className="middle-btns">
@@ -59,7 +63,7 @@ const Pokedex = props => {
             onClick={onFrontSprite}></button>
         </div>
         <div className="green-screen">
-        {height &&
+        {blinking &&
             <div>
             <h2>{name.charAt(0).toUpperCase() + name.slice(1)}</h2>
             <p>{type.charAt(0).toUpperCase() + type.slice(1)}</p>
