@@ -19,7 +19,7 @@ Inside project `root` directory run `npm install`. After all dependencies are in
 ### Api
 
 This project was made possible by the PokeApi found [here](https://pokeapi.co/)
-which is based on the popular TV show Pokemon.
+which is based on the popular TV show, Pokemon.
 
 ### Components
 
@@ -31,10 +31,17 @@ which is based on the popular TV show Pokemon.
 User is able to:
 
 -Search for a pokemon either by name or id (id's range from 1 to 802) without having to specify which one you would like to use
+
 -Have input error handling to deal with an empty input box as well as display an error if the pokemon is not found
+
 -See a blinking light indicating that the pokedex is on and they entered a valid pokemon
+
 -See the results including the pokemon avatar as well as the pokemon information(name, type, height, weight, id number)
+
 -Toggle between pokemon using the left and right control pads
+
 -Use the buttons above the green info box to toggle between avatar image. The blue displays the default front image and the orange displays the back image
+
 -Press the on/off button on the left to turn off the blinking, pokemon image display and pokemon info display. When the user turns the Pokedex back on, they will see the same state as when they turned it off(same Pokemon they left off on)
+
 -See press down animations when clicking the buttons
