@@ -62,6 +62,12 @@ $control-pad-color: rgb(41, 42, 37);
 }
 .App {
   text-align: center;
+  @include flex-row;
+  width: 40%;
+  margin: auto;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 6em;
   h1 {
     color: $primary-color;
     font-size: 55px;
@@ -102,7 +108,7 @@ $control-pad-color: rgb(41, 42, 37);
 
 .pokedex-container {
   background-color: red;
-  height: 40em;
+  height: 41em;
   width: 25em;
   margin: auto;
   margin-top: 2em;
@@ -264,7 +270,8 @@ $control-pad-color: rgb(41, 42, 37);
   width: 80%;
   margin: auto;
   margin-top: 2em;
-  height: 7em;
+  min-height: 7em;
+  max-height: auto;
   background-color: rgb(83, 154, 68);
   border: 5px solid darkgrey;
   border-style: inset;

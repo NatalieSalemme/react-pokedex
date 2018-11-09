@@ -106,41 +106,45 @@ class App extends Component {
     const { name, type, height, weight, sprite, id, blinking } = this.state;
     return (
       <div className="App">
-        <h1>Pok&eacute;dex</h1>
-        {/* Error handling to handle if input is empty and if entered pokemon is invalid */}
-          <br />
-          {this.state.error && !this.state.inputValue && <h3>Please Enter A Pokemon</h3> }
-        {this.state.error && this.state.inputValue && <h3>Pokemon Not Found</h3>}
-        <form onSubmit={this.getPokemon}>
-          <br />
-          <input
-            className="poke-input"
-            type="text"
-            name="pokemonName"
-            value={this.state.inputValue}
-            onChange={e => this.onInputChange(e.target.value)} />
+        <div className="column">
+          <Pokedex
+            sprite={sprite}
+            name={name}
+            type={type}
+            height={height}
+            weight={weight}
+            id={id}
+            onRight={this.onRight}
+            onLeft={this.onLeft}
+            blinking={blinking}
+            onFrontSprite={this.onFrontSprite}
+            onBackSprite={this.onBackSprite}
+            onEnter={this.onEnter}
+          />
+        </div>
+        <div className="column">
+          <h1>Pok&eacute;dex</h1>
+          {/* Error handling to handle if input is empty and if entered pokemon is invalid */}
             <br />
+            {this.state.error && !this.state.inputValue && <h3>Please Enter A Pokemon</h3> }
+          {this.state.error && this.state.inputValue && <h3>Pokemon Not Found</h3>}
+          <form onSubmit={this.getPokemon}>
+            <br />
+            <input
+              className="poke-input"
+              type="text"
+              name="pokemonName"
+              value={this.state.inputValue}
+              onChange={e => this.onInputChange(e.target.value)} />
+              <br />
 
-          <input
-            className="search-btn"
-            type="submit"
-            value="Search"/>
-        </form>
-        <Pokedex
-          sprite={sprite}
-          name={name}
-          type={type}
-          height={height}
-          weight={weight}
-          id={id}
-          onRight={this.onRight}
-          onLeft={this.onLeft}
-          blinking={blinking}
-          onFrontSprite={this.onFrontSprite}
-          onBackSprite={this.onBackSprite}
-          onEnter={this.onEnter}
-        />
+            <input
+              className="search-btn"
+              type="submit"
+              value="Search"/>
+          </form>
         <Footer />
+        </div> {/* end of input and footer column */}
       </div>
     );
   }

@@ -10,6 +10,8 @@ React & SASS
 
 Inside project `root` directory run `npm install`. After all dependencies are installed run `npm start`. A new browser window should open.
 
+If you have issues getting the application to work, download the CORS google chrome extension called [Allow-Control-Allow-Origin](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en)
+
 ## Project structure
 
 ### App.js
@@ -30,13 +32,13 @@ which is based on the popular TV show, Pokemon.
 
 User is able to:
 
--Search for a pokemon either by name or id (id's range from 1 to 802) without having to specify which one you would like to use
+-Search for a pokemon either by name or id (id's range from 1 to 802) without having to specify which one they would like to use
 
--Have input error handling to deal with an empty input box as well as display an error if the pokemon is not found
+-Have input error handling to deal with an empty input box, as well as display an error if the pokemon is not found
 
--See a blinking light indicating that the pokedex is on and they entered a valid pokemon
+-See a blinking light indicating that the pokedex is on and that they entered a valid pokemon
 
--See the results including the pokemon avatar as well as the pokemon information(name, type, height, weight, id number)
+-See the results including the pokemon avatar as well as the pokemon information(name, type, height, weight, and id number)
 
 -Toggle between pokemon using the left and right control pads
 
