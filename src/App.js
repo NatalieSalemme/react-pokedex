@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.scss';
-import logo from './logo.svg';
+import Footer from './Footer';
 
 import Pokedex from './Pokedex';
 
@@ -94,17 +94,6 @@ class App extends Component {
       blinking: !this.state.blinking
     });
   }
-  componentDidMount = () => {
-    const json = localStorage.getItem("pokemon");
-    const pokemon = JSON.parse(json);
-    this.setState({
-      pokemonInfo: pokemon
-    });
-  }
-  componentDidUpdate = () => {
-    const pokemon = JSON.stringify(this.state.pokemonInfo);
-    localStorage.setItem("pokemon", pokemon);
-  }
   render() {
     const { name, type, subtype, height, weight, sprite, id, blinking } = this.state;
     return (
@@ -139,15 +128,7 @@ class App extends Component {
           onBackSprite={this.onBackSprite}
           onEnter={this.onEnter}
         />
-        <p className="footer">Coded by Natalie Salemme</p>
-        <img
-          className="logo"
-          src={logo}
-          alt="React logo" />
-        <img
-          className="logo"
-          src={require('./sass.png')}
-          alt="Sass logo" />
+        <Footer />
       </div>
     );
   }
