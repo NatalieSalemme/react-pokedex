@@ -51,7 +51,7 @@ const Pokedex = props => {
         <div></div>
       </div>
       <div className="middle-btns">
-        <div className="blue-pink-btns">
+        <div className="orange-blue-btns">
           <button
             onClick={props.onBackSprite}
           ></button>
@@ -59,13 +59,20 @@ const Pokedex = props => {
             onClick={props.onFrontSprite}></button>
         </div>
         <div className="green-screen">
-        <h2>{name.charAt(0).toUpperCase() + name.slice(1)}</h2>
-        <p>{type.charAt(0).toUpperCase() + type.slice(1)}</p>
-        <p>{subtype}</p>
-        <p>Height: {heightInFeet} ft</p>
-        <p>Weight: {roundedWeight} lbs</p>
-        <p>Id: #{props.id}</p>
+        {height &&
+            <div>
+            <h2>{name.charAt(0).toUpperCase() + name.slice(1)}</h2>
+            <p>{type.charAt(0).toUpperCase() + type.slice(1)}</p>
+            <p>{subtype}</p>
+            <p>Height: {heightInFeet} ft</p>
+            <p>Weight: {roundedWeight} lbs</p>
+            <p>Id: #{props.id}</p>
+          </div>
+        }
         </div>
+
+
+
       </div>
 
       <div className="control-pad">

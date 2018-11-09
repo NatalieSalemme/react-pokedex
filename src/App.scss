@@ -9,7 +9,7 @@
   border-style: outset;
   box-shadow: 1px 1px;
 }
-@mixin pinkblue {
+@mixin orangeblue {
   width: 5em;
   height: 1em;
   border-radius: 10px;
@@ -112,7 +112,7 @@
   }
 }
     .three-dots {
-      // border: 2px dotted pink;
+      // border: 2px dotted ;
       margin-top: 1em;
       height: 2em;
       width: 25%;
@@ -231,21 +231,21 @@
   .middle-btns {
     // border: 1px dotted blue;
     width: 50%;
-    .blue-pink-btns {
+    .orange-blue-btns {
       // border: 2px dotted white;
       margin-top: .5em;
       display: flex;
       justify-content: space-around;
       button:first-child {
-        @include pinkblue;
+        @include orangeblue;
         background-color: orange;
       }
       button:nth-child(2) {
-        @include pinkblue;
+        @include orangeblue;
         background-color: blue;
       }
     }
-    .blue-pink-btns button:active {
+    .orange-blue-btns button:active {
         transform: translateY(1.2px);
         box-shadow: 1px 2px rgb(41, 42, 37);
     }

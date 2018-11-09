@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './App.scss';
-import PokemonInfo from './PokemonInfo';
+
 import Pokedex from './Pokedex';
-import googleTTS from 'google-tts-api';
 
 class App extends Component {
   state = {
@@ -135,13 +134,7 @@ class App extends Component {
           onFrontSprite={this.onFrontSprite}
           onBackSprite={this.onBackSprite}
         />
-        <PokemonInfo
-          name={name}
-          type={type}
-          subtye={subtype}
-          height={height}
-          weight={weight}
-          sprite={sprite} />
+
       </div>
     );
   }
