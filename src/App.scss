@@ -1,5 +1,8 @@
-@import './variables.scss';
-
+/* ------- VARIABLES -------- */
+$primary-color: red;
+$secondary-color: #61dafb;
+$control-pad-color: rgb(41, 42, 37);
+/* ------- VARIABLES -------- */
 /* ----MIXINS ----- */
 @mixin dots {
   width: 1.3em;
@@ -21,16 +24,18 @@
 @mixin upDown {
   height: 2em;
   width: 1.5em;
-  background-color: rgb(41, 42, 37);
+  background-color: $control-pad-color;
   margin: auto;
   border-style: solid;
   border-width: 0 3px 0 0;
+  box-shadow: 1px 1px black;
 
 }
 @mixin leftRight {
   height: 1.5em;
   width: 2em;
-  background-color: rgb(41, 42, 37);
+  background-color: $control-pad-color;
+  box-shadow: 1px 1px black;
 }
 @mixin lightblue-btn {
   height: 4em;
@@ -66,8 +71,15 @@
     height: 2em;
     font-size: 17px;
     background-color: lightblue;
+    border: 2px solid gray;
     border-radius: 10px;
     font-weight: bold;
+    outline: none;
+    box-shadow: 3px 4px gray;
+  }
+  .search-btn:active {
+    transform: translateY(1.5px);
+    box-shadow: 0px 0px gray;
   }
 }
 .pokemon-info-container {
@@ -91,11 +103,9 @@
   border-radius: 20px;
   box-shadow: 10px 12px black;
   .top-buttons {
-    // border: 2px solid green;
     height: 7em;
     width: 100%;
     display: flex;
-
     .lightup-blue {
       @include lightblue-btn
   }
@@ -103,34 +113,32 @@
       @include lightblue-btn;
       animation: blink .8s ease-in-out infinite alternate;
     }
-
     @keyframes blink{
-  to {
-    // background-image: linear-gradient(90deg, rgb(101, 224, 232) 100%, #444 0);
-    background: radial-gradient(circle at 20px 20px, white, #65e1ed);
-    box-shadow: 0px 0px 50px 2px #65e1ed;
+      to {
+      background: radial-gradient(circle at 20px 20px, white, #65e1ed);
+      box-shadow: 0px 0px 50px 2px #65e1ed;
   }
 }
-    .three-dots {
-      // border: 2px dotted ;
-      margin-top: 1em;
-      height: 2em;
-      width: 25%;
-      display: flex;
-      justify-content: space-between;
-      div:nth-child(1) {
-        @include dots;
-        background: radial-gradient(circle at 20px 20px, rgb(207, 60, 40), rgb(250, 69, 21));
-      }
-      div:nth-child(2) {
-        @include dots;
-          background: radial-gradient(circle at 20px 20px, rgb(185, 194, 25), rgb(223, 241, 110));
-      }
-      div:nth-child(3) {
-        @include dots;
-        background: radial-gradient(circle at 20px 20px, rgb(45, 210, 62), rgb(58, 140, 54));
-      }
-    }
+
+  }
+}
+.three-dots {
+  margin-top: 1em;
+  height: 2em;
+  width: 25%;
+  display: flex;
+  justify-content: space-between;
+  div:nth-child(1) {
+    @include dots;
+    background: radial-gradient(circle at 20px 20px, rgb(207, 60, 40), rgb(250, 69, 21));
+  }
+  div:nth-child(2) {
+    @include dots;
+      background: radial-gradient(circle at 20px 20px, rgb(185, 194, 25), rgb(223, 241, 110));
+  }
+  div:nth-child(3) {
+    @include dots;
+    background: radial-gradient(circle at 20px 20px, rgb(45, 210, 62), rgb(58, 140, 54));
   }
 }
 .image-container {
@@ -205,11 +213,9 @@
 }
 .controls-container {
   margin-top: 1.5em;
-  // border: 2px solid green;
   height: 10em;
   display: flex;
   .enter-btn {
-    // border: 1px solid white;
     width: 20%;
     display: flex;
     justify-content: center;
@@ -217,103 +223,104 @@
     div {
       height: 3em;
       width: 3em;
-      background-color: rgb(41, 42, 37);
+      background-color: $control-pad-color;
       border: 3px solid darkgray;
       border-style: outset;
       border-radius: 50%;
-      box-shadow: 3px 6px rgb(41, 42, 37);
+      box-shadow: 3px 6px $control-pad-color;
     }
     div:active {
       transform: translateY(1.5px);
-      box-shadow: 1px 3px rgb(41, 42, 37);
+      box-shadow: 1px 3px $control-pad-color;
     }
   }
-  .middle-btns {
-    // border: 1px dotted blue;
-    width: 50%;
-    .orange-blue-btns {
-      // border: 2px dotted white;
-      margin-top: .5em;
-      display: flex;
-      justify-content: space-around;
-      button:first-child {
-        @include orangeblue;
-        background-color: orange;
-      }
-      button:nth-child(2) {
-        @include orangeblue;
-        background-color: blue;
-      }
-    }
-    .orange-blue-btns button:active {
-        transform: translateY(1.2px);
-        box-shadow: 1px 2px rgb(41, 42, 37);
-    }
-    .green-screen {
-      width: 80%;
-      margin: auto;
-      margin-top: 2em;
-      height: 7em;
-      background-color: rgb(83, 154, 68);
-      border: 5px solid darkgrey;
-      border-style: inset;
-    }
-  }
-  .control-pad {
-    // border: 1px solid white;
-    justify-content: center;
-    width: 30%;
+}
+.middle-btns {
+  width: 50%;
+  .orange-blue-btns {
+    margin-top: .5em;
     display: flex;
-    flex-direction: column;
+    justify-content: space-around;
+    button:first-child {
+      @include orangeblue;
+      background-color: orange;
+    }
+    button:nth-child(2) {
+      @include orangeblue;
+      background-color: blue;
+    }
+  }
+  .orange-blue-btns button:active {
+      transform: translateY(1.2px);
+      box-shadow: 1px 2px $control-pad-color;
+  }
+}
+.green-screen {
+  width: 80%;
+  margin: auto;
+  margin-top: 2em;
+  height: 7em;
+  background-color: rgb(83, 154, 68);
+  border: 5px solid darkgrey;
+  border-style: inset;
+}
+.control-pad {
+  justify-content: center;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
 
-    .lbr {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-    }
-    .up {
-      @include upDown;
-      border-radius: 8px 8px 0 0;
-    }
-    .right {
-      @include leftRight;
-      border-radius: 0 8px 8px 0;
-      border-width: 0 2px 0 0;
-    }
-    .down {
-      @include upDown;
-      border-radius: 0 0 8px 8px;
-    }
-    .left {
-      @include leftRight;
-      border-radius: 8px 0 0 8px;
-    }
-    .right:active,
-    .left:active {
-      transform: translateY(1px);
-    }
-    .down:active {
-      box-shadow: 0 2px rgb(41, 42, 37);
-      transform: translateY(-1px);
-    }
-    .up:active {
-      box-shadow: 0 2px rgb(41, 42, 37);
-      transform: translateY(-1px);
-    }
-    .base {
-      height: 1.5em;
-      width: 2em;
-      background-color: rgb(41, 42, 37);
-      .base-circle {
-        height: 1em;
-        width: 1em;
-        background-color: rgb(46, 48, 44);
-        border: 2px solid gray;
-        border-style: inset;
-        border-radius: 50%;
-        margin: auto;
-        margin-top: .2em;
-      }
+  .lbr {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .up {
+    @include upDown;
+    border-radius: 8px 8px 0 0;
+  }
+  .right {
+    @include leftRight;
+    border-radius: 0 8px 8px 0;
+    border-width: 0 2px 0 0;
+  }
+  .down {
+    @include upDown;
+    border-radius: 0 0 8px 8px;
+  }
+  .left {
+    @include leftRight;
+    border-radius: 8px 0 0 8px;
+
+  }
+  .right:active {
+    transform: translateY(.8px);
+  }
+  .left:active {
+    transform: translate(.1px, .8px);
+    box-shadow: 0 0;
+  }
+  .down:active {
+    box-shadow: 0 .5px $control-pad-color;
+    transform: translateY(-.5px);
+  }
+  .up:active {
+    box-shadow: 0 .5px $control-pad-color;
+    transform: translateY(-.5px);
+  }
+  .base {
+    height: 1.5em;
+    width: 2em;
+    background-color: $control-pad-color;
+    .base-circle {
+      height: 1em;
+      width: 1em;
+      background-color: rgb(46, 48, 44);
+      border: 2px solid gray;
+      border-style: inset;
+      border-radius: 50%;
+      margin: auto;
+      margin-top: .2em;
     }
   }
 }

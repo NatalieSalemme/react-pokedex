@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from '../images/logo.svg';
 
 const Footer = () => (
   <div>
@@ -10,7 +10,7 @@ const Footer = () => (
       alt="React logo" />
     <img
       className="logo"
-      src={require('./sass.png')}
+      src={require('../images/sass.png')}
       alt="Sass logo" />
   </div>
 );

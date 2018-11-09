@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.scss';
-import Footer from './Footer';
+import Footer from './components/Footer';
 
-import Pokedex from './Pokedex';
+import Pokedex from './components/Pokedex';
 
 class App extends Component {
   state = {
