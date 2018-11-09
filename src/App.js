@@ -9,7 +9,6 @@ class App extends Component {
     pokemonInfo: [],
     name: '',
     type: '',
-    subtype: '',
     height: '',
     weight: '',
     sprite: '',
@@ -25,13 +24,11 @@ class App extends Component {
       const pokemonName = e.target.elements.pokemonName.value;
       e.preventDefault();
       const apiCall = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}/`);
-      // const subtype = data.types[1].type.name;
       const data = await apiCall.json();
       this.setState({
         pokemonInfo: data,
         name: data.name,
         type: data.types[0].type.name,
-        // subtype: data.includes(data.types[1].type.name) && data.types[1].type.name,
         height: data.height,
         weight: data.weight,
         sprite: data.sprites.front_default,
@@ -106,10 +103,11 @@ class App extends Component {
     });
   }
   render() {
-    const { name, type, subtype, height, weight, sprite, id, blinking } = this.state;
+    const { name, type, height, weight, sprite, id, blinking } = this.state;
     return (
       <div className="App">
         <h1>Pok&eacute;dex</h1>
+        {/* Error handling to handle if input is empty and if entered pokemon is invalid */}
           <br />
           {this.state.error && !this.state.inputValue && <h3>Please Enter A Pokemon</h3> }
         {this.state.error && this.state.inputValue && <h3>Pokemon Not Found</h3>}

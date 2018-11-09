@@ -47,6 +47,14 @@ $control-pad-color: rgb(41, 42, 37);
   box-shadow: 2px 4px darkgray;
   background: radial-gradient(circle at 20px 20px, white, blue);
 }
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
 /* ----MIXINS ----- */
 * {
   margin: 0;
@@ -143,7 +151,6 @@ $control-pad-color: rgb(41, 42, 37);
 }
 .image-container {
   height: 19em;
-  // border: 3px dotted white;
   .gray-container {
     background-color: lightgray;
     height: 100%;
@@ -153,7 +160,6 @@ $control-pad-color: rgb(41, 42, 37);
     border-style: outset;
     border-radius: 10px 10px 10px 60px;
     box-shadow: 2px 2px;
-
     .two-dot-container {
       height: 1em;
       margin-bottom: 1em;
@@ -185,7 +191,7 @@ $control-pad-color: rgb(41, 42, 37);
       height: 3em;
       width: 80%;
       margin: auto;
-      display: flex;
+      @include flex-row;
       align-items: center;
       justify-content: space-between;
       .red-dot {
@@ -203,8 +209,7 @@ $control-pad-color: rgb(41, 42, 37);
 .lines-container {
   height:2em;
   width: 2.5em;
-  display: flex;
-  flex-direction: column;
+  @include flex-column;
   div {
     height: 15px;
     width: 100%;
@@ -214,10 +219,10 @@ $control-pad-color: rgb(41, 42, 37);
 .controls-container {
   margin-top: 1.5em;
   height: 10em;
-  display: flex;
+  @include flex-row;
   .enter-btn {
     width: 20%;
-    display: flex;
+    @include flex-row;
     justify-content: center;
     align-items: center;
     div {
@@ -239,7 +244,7 @@ $control-pad-color: rgb(41, 42, 37);
   width: 50%;
   .orange-blue-btns {
     margin-top: .5em;
-    display: flex;
+    @include flex-row;
     justify-content: space-around;
     button:first-child {
       @include orangeblue;
@@ -267,12 +272,9 @@ $control-pad-color: rgb(41, 42, 37);
 .control-pad {
   justify-content: center;
   width: 30%;
-  display: flex;
-  flex-direction: column;
-
+  @include flex-column;
   .lbr {
-    display: flex;
-    flex-direction: row;
+    @include flex-row;
     justify-content: center;
   }
   .up {
@@ -291,7 +293,6 @@ $control-pad-color: rgb(41, 42, 37);
   .left {
     @include leftRight;
     border-radius: 8px 0 0 8px;
-
   }
   .right:active {
     transform: translateY(.8px);

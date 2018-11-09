@@ -1,10 +1,10 @@
 import React from 'react'
 
 const Pokedex = props => {
-  const { name, type, subtype, height, weight, sprite, blinking, onBackSprite, onFrontSprite, onLeft, onRight } = props;
+  const { name, type, height, weight, sprite, blinking, onBackSprite, onFrontSprite, onLeft, onRight } = props;
   //converting weight from hectograms to pounds
   let roundedWeight = Math.round((weight / 4.536) * 10) /10;
-  //concerting height from decimeters to feet
+  //converting height from decimeters to feet
   let actualFeet = height / 3.048;
   let feet = Math.floor(actualFeet);
   let inches = Math.round((actualFeet - feet) * 12);
@@ -12,6 +12,7 @@ const Pokedex = props => {
   return (
   <div className="pokedex-container">
     <div className="top-buttons">
+      {/* Activates blue button blinking animation class if Pokedex is turned on and user has entered a valid Pokemon */}
       <div className={blinking ? 'blinking' : 'lightup-blue'}>
       </div>
       <div className="three-dots">
@@ -27,17 +28,16 @@ const Pokedex = props => {
           <div></div>
           <div></div>
         </div>
-          {/*only renders if user has entered a valid pokemon name or id*/}
+          {/*only renders if user has entered a valid pokemon name or id and pokedex is on*/}
         <div className="poke-image">
-
         {blinking && <img
           src={sprite}
           alt={name}
            /> }
-
         </div>
         <div className="under-poke-image">
           <div className="red-dot"></div>
+          {/*contains stacked lines for gray container */}
           <div className="lines-container">
             <div></div>
             <div></div>
@@ -46,7 +46,6 @@ const Pokedex = props => {
           </div>
         </div>
         </div>
-
     </div>
     <div className="controls-container">
       <div
@@ -56,27 +55,26 @@ const Pokedex = props => {
       </div>
       <div className="middle-btns">
         <div className="orange-blue-btns">
+        {/* Reveals back Pokemon pose */}
           <button
             onClick={onBackSprite}
           ></button>
+          {/* Reveals front Pokemon pose */}
           <button
             onClick={onFrontSprite}></button>
         </div>
+        {/* Only displays green screen text if pokedex state is on */}
         <div className="green-screen">
         {blinking &&
             <div>
             <h2>{name.charAt(0).toUpperCase() + name.slice(1)}</h2>
             <p>{type.charAt(0).toUpperCase() + type.slice(1)}</p>
-            <p>{subtype}</p>
             <p>Height: {heightInFeet} ft</p>
             <p>Weight: {roundedWeight} lbs</p>
             <p>Id: #{props.id}</p>
           </div>
         }
         </div>
-
-
-
       </div>
 
       <div className="control-pad">

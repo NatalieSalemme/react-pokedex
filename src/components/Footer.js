@@ -12,6 +12,17 @@ const Footer = () => (
       className="logo"
       src={require('../images/sass.png')}
       alt="Sass logo" />
+      <a
+        href="https://github.com/NatalieSalemme/react-pokedex"
+        target="_blank"
+        rel="noopener noreferrer">
+        <img
+          className="logo"
+          src={require('../images/github.png')}
+          alt="Github logo"
+          href="https://github.com/NatalieSalemme/react-pokedex"
+        />
+      </a>
   </div>
 );
 export default Footer;
