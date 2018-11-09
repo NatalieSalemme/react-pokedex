@@ -16,7 +16,8 @@ class App extends Component {
     backSprite: '',
     inputValue: '',
     id: '',
-    blinking: false
+    blinking: false,
+    error: false
   }
 
   getPokemon = async (e) => {
@@ -40,9 +41,11 @@ class App extends Component {
       });
 
     } catch(err) {
-      alert('Invalid, Please Try Again');
-    }
+      this.setState({
+        error: true
+      });
 
+    }
   }
   onRight = async (e) => {
     let id = this.state.id + 1;
@@ -72,6 +75,7 @@ class App extends Component {
       sprite: data.sprites.front_default,
       id: data.id,
       inputValue: '',
+      error: false
     });
   }
   onBackSprite = async (e) => {
@@ -92,7 +96,8 @@ class App extends Component {
   }
   onInputChange(value) {
     this.setState({
-      inputValue: value
+      inputValue: value,
+      error: false
     });
   }
   onEnter = () => {
@@ -105,8 +110,11 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Pok&eacute;dex</h1>
-
+          <br />
+          {this.state.error && !this.state.inputValue && <h3>Please Enter A Pokemon</h3> }
+        {this.state.error && this.state.inputValue && <h3>Pokemon Not Found</h3>}
         <form onSubmit={this.getPokemon}>
+          <br />
           <input
             className="poke-input"
             type="text"
@@ -114,6 +122,7 @@ class App extends Component {
             value={this.state.inputValue}
             onChange={e => this.onInputChange(e.target.value)} />
             <br />
+
           <input
             className="search-btn"
             type="submit"
