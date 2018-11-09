@@ -20,23 +20,29 @@ class App extends Component {
   }
 
   getPokemon = async (e) => {
-    const pokemonName = e.target.elements.pokemonName.value;
-    e.preventDefault();
-    const apiCall = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}/`);
-    // const subtype = data.types[1].type.name;
-    const data = await apiCall.json();
-    this.setState({
-      pokemonInfo: data,
-      name: data.name,
-      type: data.types[0].type.name,
-      // subtype: data.includes(data.types[1].type.name) && data.types[1].type.name,
-      height: data.height,
-      weight: data.weight,
-      sprite: data.sprites.front_default,
-      id: data.id,
-      inputValue: '',
-      blinking: true,
-    });
+    try {
+      const pokemonName = e.target.elements.pokemonName.value;
+      e.preventDefault();
+      const apiCall = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}/`);
+      // const subtype = data.types[1].type.name;
+      const data = await apiCall.json();
+      this.setState({
+        pokemonInfo: data,
+        name: data.name,
+        type: data.types[0].type.name,
+        // subtype: data.includes(data.types[1].type.name) && data.types[1].type.name,
+        height: data.height,
+        weight: data.weight,
+        sprite: data.sprites.front_default,
+        id: data.id,
+        inputValue: '',
+        blinking: true,
+      });
+
+    } catch(err) {
+      alert('Invalid, Please Try Again');
+    }
+
   }
   onRight = async (e) => {
     let id = this.state.id + 1;
@@ -108,7 +114,6 @@ class App extends Component {
             value={this.state.inputValue}
             onChange={e => this.onInputChange(e.target.value)} />
             <br />
-
           <input
             className="search-btn"
             type="submit"
