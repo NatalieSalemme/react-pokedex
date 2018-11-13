@@ -1,4 +1,4 @@
-![Pokedex Screenshot](http://tinypic.com/r/359gzo2/9)
+![Pokedex Screenshot](nataliesalemme.github.com/react-pokedex/src/images/pokedex-pic.png)
 
 
 # Pokedex
