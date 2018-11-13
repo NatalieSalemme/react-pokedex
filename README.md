@@ -1,4 +1,4 @@
-![Pokedex Screenshot](nataliesalemme.github.com/react-pokedex/src/images/pokedex-pic.png)
+![Pokedex Screenshot](/src/images/pokedex-pic.png)
 
 
 # Pokedex
