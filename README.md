@@ -1,3 +1,6 @@
+![Pokedex Screenshot](http://tinypic.com/r/359gzo2/9)
+
+
 # Pokedex
 
 This project is bootstrapped using [create-react-app](https://github.com/facebook/create-react-app)
