@@ -23,7 +23,7 @@ class App extends Component {
     try {
       const pokemonName = e.target.elements.pokemonName.value;
       e.preventDefault();
-      const apiCall = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}/`);
+      const apiCall = await fetch(`http://pokeapi.salestock.net/api/v2/pokemon/${pokemonName}/`);
       const data = await apiCall.json();
       this.setState({
         pokemonInfo: data,
@@ -41,12 +41,13 @@ class App extends Component {
       this.setState({
         error: true
       });
+      console.log(err.message);
 
     }
   }
   onRight = async (e) => {
     let id = this.state.id + 1;
-    const apiCall = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+    const apiCall = await fetch(`http://pokeapi.salestock.net/api/v2/pokemon/${id}`);
     const data = await apiCall.json();
     this.setState({
       pokemonInfo: data,
@@ -61,7 +62,7 @@ class App extends Component {
   }
   onLeft = async (e) => {
     let id = this.state.id - 1;
-    const apiCall = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+    const apiCall = await fetch(`http://pokeapi.salestock.net/api/v2/pokemon/${id}`);
     const data = await apiCall.json();
     this.setState({
       pokemonInfo: data,
@@ -77,7 +78,7 @@ class App extends Component {
   }
   onBackSprite = async (e) => {
     let id = this.state.id;
-    const apiCall = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+    const apiCall = await fetch(`http://pokeapi.salestock.net/api/v2/pokemon/${id}`);
     const data = await apiCall.json();
     this.setState({
       sprite: data.sprites.back_default,
@@ -85,7 +86,7 @@ class App extends Component {
   }
   onFrontSprite = async (e) => {
     let id = this.state.id;
-    const apiCall = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+    const apiCall = await fetch(`http://pokeapi.salestock.net/api/v2/pokemon/${id}`);
     const data = await apiCall.json();
     this.setState({
       sprite: data.sprites.front_default,
