@@ -20,6 +20,9 @@ $control-pad-color: rgb(41, 42, 37);
   border-style: outset;
   outline: none;
   box-shadow: 2px 2px;
+  &:hover {
+    cursor:pointer;
+  }
 }
 @mixin upDown {
   height: 2em;
@@ -91,6 +94,9 @@ $control-pad-color: rgb(41, 42, 37);
     font-weight: bold;
     outline: none;
     box-shadow: 3px 4px gray;
+    &:hover {
+      cursor:pointer;
+    }
   }
   .search-btn:active {
     transform: translateY(1.5px);
@@ -233,6 +239,9 @@ $control-pad-color: rgb(41, 42, 37);
     @include flex-row;
     justify-content: center;
     align-items: center;
+    &:hover {
+      cursor:pointer;
+    }
     div {
       height: 3em;
       width: 3em;
@@ -293,6 +302,9 @@ $control-pad-color: rgb(41, 42, 37);
       box-shadow: 0 .5px $control-pad-color;
       transform: translateY(-.5px);
     }
+    &:hover {
+      cursor:pointer;
+    }
   }
 
   .right {
@@ -301,6 +313,9 @@ $control-pad-color: rgb(41, 42, 37);
     border-width: 0 2px 0 0;
     &:active {
       transform: translateY(.8px);
+    }
+    &:hover {
+      cursor:pointer;
     }
   }
 
@@ -311,14 +326,20 @@ $control-pad-color: rgb(41, 42, 37);
       box-shadow: 0 .5px $control-pad-color;
       transform: translateY(-.5px);
     }
+    &:hover {
+      cursor:pointer;
+    }
   }
-  
+
   .left {
     @include leftRight;
     border-radius: 8px 0 0 8px;
     &:active {
       transform: translate(.1px, .8px);
       box-shadow: 0 0;
+    }
+    &:hover {
+      cursor:pointer;
     }
   }
 
