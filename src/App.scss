@@ -289,35 +289,42 @@ $control-pad-color: rgb(41, 42, 37);
   .up {
     @include upDown;
     border-radius: 8px 8px 0 0;
+    &:active {
+      box-shadow: 0 .5px $control-pad-color;
+      transform: translateY(-.5px);
+    }
   }
+
   .right {
     @include leftRight;
     border-radius: 0 8px 8px 0;
     border-width: 0 2px 0 0;
+    &:active {
+      transform: translateY(.8px);
+    }
   }
+
   .down {
     @include upDown;
     border-radius: 0 0 8px 8px;
+    &:active {
+      box-shadow: 0 .5px $control-pad-color;
+      transform: translateY(-.5px);
+    }
   }
+  
   .left {
     @include leftRight;
     border-radius: 8px 0 0 8px;
+    &:active {
+      transform: translate(.1px, .8px);
+      box-shadow: 0 0;
+    }
   }
-  .right:active {
-    transform: translateY(.8px);
-  }
-  .left:active {
-    transform: translate(.1px, .8px);
-    box-shadow: 0 0;
-  }
-  .down:active {
-    box-shadow: 0 .5px $control-pad-color;
-    transform: translateY(-.5px);
-  }
-  .up:active {
-    box-shadow: 0 .5px $control-pad-color;
-    transform: translateY(-.5px);
-  }
+
+
+
+
   .base {
     height: 1.5em;
     width: 2em;
