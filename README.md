@@ -9,6 +9,9 @@ This project is bootstrapped using [create-react-app](https://github.com/faceboo
 
 React & SASS
 
+## Live Demo 
+https://salemme-pokedex.herokuapp.com/
+
 ## How to begin
 
 Inside project `root` directory run `npm install`. After all dependencies are installed run `npm start`. A new browser window should open.
